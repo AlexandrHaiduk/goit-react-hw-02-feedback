@@ -1,23 +1,13 @@
-export const Feedback = ({ addFeedback }) => {
+export const Feedback = ({ data, addFeedback }) => {
   return (
     <>
-      <h1>Please leave feedback</h1>
-      <button
-        type="button"
-        name="good"
-        onClick={e => {
-          console.log(e);
-          console.log(e.currentTarget);
-        }}
-      >
-        Good
-      </button>
-      <button type="button" name="neutral" onClick={addFeedback}>
-        Neutral
-      </button>
-      <button type="button" name="bad" onClick={addFeedback}>
-        Bad
-      </button>
+      {data.map((name, i) => {
+        return (
+          <button name={name} key={i + 1} onClick={() => addFeedback(name)}>
+            {name}
+          </button>
+        );
+      })}
     </>
   );
 };

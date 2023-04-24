@@ -1,10 +1,15 @@
-export const Stats = () => {
+export const Stats = ({ data, statName, total, positiveCounter }) => {
   return (
     <>
-      <h2>Statistics</h2>
-      <p>Good: </p>
-      <p>Neutral: </p>
-      <p>Bad: </p>
+      {data.map((name, i) => {
+        return (
+          <p key={i + 1}>
+            {name}:{statName[name]}
+          </p>
+        );
+      })}
+      <p>Total:{total}</p>
+      <p>Positive feedback: {positiveCounter} %</p>
     </>
   );
 };
