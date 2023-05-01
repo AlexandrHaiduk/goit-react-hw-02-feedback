@@ -1,9 +1,9 @@
 export const Stats = ({ data, statName, total, positiveCounter }) => {
   return (
     <>
-      {data.map((name, i) => {
+      {data.map(name => {
         return (
-          <p key={i + 1}>
+          <p key={name}>
             {name}:{statName[name]}
           </p>
         );
